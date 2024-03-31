@@ -1,17 +1,20 @@
 <?php
-include 'includes/conexao.php'; // Inclui o arquivo de conexão ao banco de dados
+include 'includes/conexao.php';
 
-// Obtém o ID do aluno a ser excluído
-$id = $_GET['id'];
+// Verifica se o ID do aluno foi fornecido via GET
+if(isset($_GET['id']) && !empty($_GET['id'])) {
+    $id = $_GET['id'];
 
-// Exclui o aluno com base no ID
-$sql = "DELETE FROM aluno WHERE id=$id";
+    // Prepara e executa a consulta SQL para excluir o aluno com o ID fornecido
+    $sql = "DELETE FROM aluno WHERE id = $id";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Aluno excluído com sucesso!";
+    if ($conn->query($sql) === TRUE) {
+        echo "Aluno excluído com sucesso!";
+    } else {
+        echo "Erro ao excluir aluno: " . $conn->error;
+    }
 } else {
-    echo "Erro ao excluir aluno: " . $conn->error;
+    // Se o ID do aluno não foi fornecido via GET, exibe uma mensagem de erro
+    echo "ID do aluno não fornecido.";
 }
-
-$conn->close();
 ?>
