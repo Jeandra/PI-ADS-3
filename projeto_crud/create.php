@@ -44,7 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" name="email">
         </div>
-        <button type="submit" class="btn btn-primary">Adicionar</button>
+        <button type="submit" class="btn btn-success">Adicionar</button>
+        <a href="index.php" class="btn btn-primary" role="button" data-bs-toggle="button">Voltar</a>
     </form>
 </div>
 
