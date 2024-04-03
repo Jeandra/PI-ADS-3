@@ -33,7 +33,7 @@
     }
     ?>
     <!-- Botão de Voltar -->
-    <a href="read.php" class="btn btn-primary" role="button" data-bs-toggle="button">Voltar</a>
+    <a href="read.php" class="btn btn-dark" role="button" data-bs-toggle="button">Voltar</a>
 </div>
 
 
