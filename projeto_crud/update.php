@@ -13,15 +13,19 @@
     
     <?php
     include 'includes/conexao.php';
+    include 'dark.php';
+
+    if (isset($_GET['id'])) 
+        // Recuperar o ID do item a ser editado
+        $id = $_GET['id'];
     // Verifica se o formulário foi submetido via POST
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['nome']) && isset($_POST['valor'])){
         // Obtém os dados do formulário
-        $nome = $_POST['nome'];
-        $idade = $_POST['idade'];
-        $email = $_POST['email'];
+        $novoNome = $_POST['nome'];
+        $novoValor = $_POST['valor'];
 
         // Prepara e executa a consulta SQL para atualizar os dados do aluno
-        $sql = 'UPDATE aluno SET nome=$nome, idade=$idade, email=$email, id=$id';
+        $sqlUpdate = "UPDATE produto SET nome = '$novoNome', valor = '$novoValor' WHERE id = $id";
 
         if ($conn->query($sql) === TRUE) {
             echo "Dados do aluno atualizados com sucesso!";
@@ -46,8 +50,8 @@
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" value="<?php echo isset($aluno['email']) ? $aluno['email'] : ''; ?>">
             </div>
-            <button type="submit" class="btn btn-success">Atualizar Aluno</button>
-            <a href="index.php" class="btn btn-primary" role="button" data-bs-toggle="button">Voltar</a>
+            <button type="submit" class="btn btn-success">Atualizar</button>
+            <a href="read.php" class="btn btn-dark" role="button" data-bs-toggle="button">Voltar</a>
         </form>
         
     <?php } ?>
