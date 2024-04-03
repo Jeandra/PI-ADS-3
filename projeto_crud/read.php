@@ -1,5 +1,6 @@
 <?php
 include 'includes/conexao.php'; // Inclui o arquivo de conexão ao banco de dados
+include 'dark.php'
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +13,10 @@ include 'includes/conexao.php'; // Inclui o arquivo de conexão ao banco de dado
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
+<?php include 'dark.php'; ?>
 <div class="container">
     <h2>Lista de Alunos</h2>
-    <table class="table">
+    <table class="table table-dark table-striped">
         <thead>
             <tr>
                 <th>ID</th>
@@ -38,8 +39,10 @@ include 'includes/conexao.php'; // Inclui o arquivo de conexão ao banco de dado
                     echo "<td>".$row["nome"]."</td>";
                     echo "<td>".$row["idade"]."</td>";
                     echo "<td>".$row["email"]."</td>";
+                    echo "<td><a href='update.php?id=".$row["id"]."' class='btn btn-success ml-2'>Atualizar</a></td>";
                     echo "<td><a href='delete.php?id=".$row["id"]."' class='btn btn-danger'>Excluir</a></td>";
                     echo "</tr>";
+                   
                 }
             } else {
                 echo "<tr><td colspan='5'>Não há alunos cadastrados.</td></tr>";
@@ -48,7 +51,9 @@ include 'includes/conexao.php'; // Inclui o arquivo de conexão ao banco de dado
             ?>
         </tbody>
     </table>
-    <a href="index.php" class="btn btn-primary" role="button" data-bs-toggle="button">Voltar</a>
+    <a href="create.php" class="btn btn-success" role="button" data-bs-toggle="button">Adicionar</a>
+    <a href="index.php" class="btn btn-dark" role="button" data-bs-toggle="button">Voltar</a>
+    
 </div>
 
 </body>
