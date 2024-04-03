@@ -1,6 +1,6 @@
 <?php
 include 'includes/conexao.php'; // Inclui o arquivo de conexão ao banco de dados
-
+include 'dark.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se o formulário foi submetido
 
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+<?php include 'dark.php'; ?>
 <div class="container">
     <h2>Adicionar Aluno</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -45,7 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="email" class="form-control" id="email" name="email">
         </div>
         <button type="submit" class="btn btn-success">Adicionar</button>
-        <a href="index.php" class="btn btn-primary" role="button" data-bs-toggle="button">Voltar</a>
+        <a href="read.php" class="btn btn-primary" role="button" data-bs-toggle="button">Visualizar</a>
+        <a href="index.php" class="btn btn-dark" role="button" data-bs-toggle="button">Voltar</a>
     </form>
 </div>
 
